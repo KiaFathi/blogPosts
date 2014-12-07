@@ -10,7 +10,7 @@ var eight = 8;
 eight.toString(2); // 1000
 ```
 
-Intuitively, it would make sense for ~five to equal 010, or 2, and ~eight to equal 111, or 7. Let's see what happens when we do this in Javascript:
+Intuitively, it would make sense for ~five to equal 010, or 2, and ~eight to equal 0111, or 7. Let's see what happens when we do this in Javascript:
 
 ```
 var five = 5;
@@ -24,7 +24,7 @@ eight.toString(2); // 1000
 
 ```
 
-Why do we see this unexpected behavior in JavaScript?
+Why do we see this unexpected behavior in Javascript?
 
 ###Complements of Two's Complement
 
@@ -47,9 +47,7 @@ The way the system works is different dependent on the sign of the number.
 
 All positive numbers have an extra 0 as their most significant bit, but work like regular binary.
 
-For example:
-
-7 is equal to 111
+####7 is equal to 111
   - 1 in b0 is equal to 1
   - 1 in b1 is equal to 2
   - 1 in b2 is qual  to 4
@@ -57,15 +55,14 @@ For example:
 
 All negative numbers are preceded by a 1, and the value of a negative number is found by subtracting all the bits after the most significant bit from the most significant bit.
 
-For example:
-
--3 is equal to 101.
+####-3 is equal to 101.
  - 1 in b2 represents 4.
  - 1 in b0 represents 1.
  - 4 - 1 = 3
- - Since we have a negative number, this results in -3
+ - Since we have a negative number, this results
+in -3
 
-- 13 is equal to 10011.
+####-13 is equal to 10011.
   - 1 in b4 is equal to 16
   - 1 in b1 is equal to 2, plus 1 in b0 is equal to 3
   - 16 - 3 = 13
