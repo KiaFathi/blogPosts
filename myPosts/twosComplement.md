@@ -16,19 +16,14 @@ Intuitively, it would make sense for ~five to equal 010, or 2, and ~eight to equ
 var five = 5;
 five.toString(2); // 101
 
-var eight = 8;
-eight.toString(2); // 1000
-
 ~five; // -6
-~eight; // -9
-
 ```
 
 Why do we see this unexpected behavior in Javascript?
 
 ###Complements of Two's Complement
 
-What is Two's Complement? It is a system to represent positive and negative numbers using bits. 
+What is Two's Complement? It is a system to represent positive and negative numbers using bits. It is because of Two's complment that we see unexpected behavior when using the ~ operator.
 
 Two's Complement works by using the most significant bit as a signal for whether a number is positive or negative. A 0 in the most siginificant place represents a positive number, and a 1 represents a negative number.
 
@@ -67,3 +62,6 @@ in -3
   - 1 in b1 is equal to 2, plus 1 in b0 is equal to 3
   - 16 - 3 = 13
   - Since we have a negative number, this results in -16
+
+
+So even though five.toString(2) is shown to be equal to 101, Javascript is actually interpreting that binary number as 0101. When we invert these bits we get 1010, which is -6 in Two's Complement.
